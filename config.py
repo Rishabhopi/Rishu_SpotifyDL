@@ -24,11 +24,11 @@ LOGGER = logging.getLogger(__name__)
 
 try:
     API_ID = int(environ['API_ID',"14050586"])
-    API_HASH = environ['API_HASH']
+    API_HASH = environ['API_HASH',"42a60d9c657b106370c79bb0a8ac560c"]
     BOT_TOKEN = environ['BOT_TOKEN']
-    DB_URL = environ['DB_URL']
-    DB_NAME = environ['DB_NAME']
-    OWNER_ID = int(environ['OWNER_ID'])
+    DB_URL = environ['DB_URL',"mongodb+srv://Krishna:pss968048@cluster0.4rfuzro.mongodb.net/?retryWrites=true&w=majority"]
+    DB_NAME = environ['DB_NAME',"cluster0"]
+    OWNER_ID = int(environ['OWNER_ID',"5738579437"])
 except KeyError:
     LOGGER.debug("One or More ENV variable not found.")
     sys.exit(1)
@@ -37,11 +37,11 @@ SUDO_USERS = environ.get("SUDO_USERS",str(OWNER_ID)).split()
 SUDO_USERS = [int(_x) for _x in SUDO_USERS]
 if OWNER_ID not in SUDO_USERS:
     SUDO_USERS.append(OWNER_ID)
-ADMIN = int(environ['ADMIN'])
+ADMIN = int(environ['ADMIN',"5738579437"])
 AUTH_CHATS = environ.get('AUTH_CHATS',None ).split()
 AUTH_CHATS = [int(_x) for _x in AUTH_CHATS]
-START_PIC = environ['START_PIC']
-LOG_GROUP = environ.get("LOG_GROUP", None)
+START_PIC = environ['START_PIC',"https://graph.org/file/7f790884507f5778f92bd.jpg"]
+LOG_GROUP = environ.get("LOG_GROUP","-1002062847270")
 DUMP_GROUP = environ.get("DUMP_GROUP", None)
 if LOG_GROUP:
     LOG_GROUP = int(LOG_GROUP)
